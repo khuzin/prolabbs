@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style>p.indent{ padding-left: 0.4em }</style>
+	<meta charset="UTF-8">
+	<title>Калькулятор пакетов</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css?v=3333">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+</head>
+<body>
+	<!--a href="" id="test">test</a>
+<div id="content2"></div-->
+<section class="culc"  id="content">
+	<div class="wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col"><h1>Калькулятор пакетов</h1></div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<div class="items">
+						<ul>
+							<li class="active">Выбор<br>города</li>
+							<li class="current">Выбор<br>пакета</li>
+							<li>Количество<br>экранов</li>
+							<li>Эфирное<br>время</li>
+							<li>Период</li>
+							<li>Доп.услуги</li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+
+<div class="row">
+	<div class="col-lg-7 col-xl-8">
+		<div class="slides ">
+			<!---------------- Слайд 1 начало --------------->
+
+			<div class="sl1 hidden">
+				<h2 class="sl_title ">Выберите <span>город</span></h2>
+
+				<div class="wrap">
+
+					<div class="btns">
+						<a id='cityKazan' data-id=1>Казань</a>
+						<a id='cityNn' data-id=2  class="active">Нижний Новгород</a>
+					</div>
+
+
+
+				</div>
+
+				<div class="next_step d-flex">
+					<a data-slide='2' id="next">Дальше</a>
+				</div>
+			</div>
+
+			<!---------------- Слайд 1 конец --------------->
+
+
+			<!---------------- Слайд 2 начало --------------->
+			<div class="sl2">
+				<h2 class="sl_title">Выберите <span>пакет</span></h2>
+
+
+				<div class="wrap d-flex">
+					<p>
+						В пакеты включены остатки эфирного времени по оптовым ценам. Чем больше объём размещения, тем выше скидка. Попробуйте, вы и вправду хорошо сэкономите.
+					</p>
+
+					<div class="select">
+
+						<div class="item d-flex justify-content-between active" data-rayon='1'>
+							<div class="left">
+								<div class="name city_id">Весь Нижний Новгород</div>
+								<div class="opis">Адресная программа формируется автоматически</div>
+							</div>
+							<div class="right">
+								<p>Геонастройка адресной программы: <span>отсутствует</span></p>
+								<p>Количество экранов: <span>от 10 до 20</span><br>Размер стартовой скидки: <span>от 40%</span></p>
+							</div>
+						</div>
+
+
+						<div class="item d-flex justify-content-between" data-rayon='3'>
+							<div class="left">
+								<div class="name">Индивидуальный</div>
+								<div class="opis">Вы совместно с нашим  менеджером формируете индивидуальную адресную программу</div>
+							</div>
+							<div class="right">
+								<p>Геонастройка адресной программы: <span>высокая</span></p>
+								<p>Количество экранов: <span>от 10 до 20</span><br>Размер стартовой скидки: <span>от 35%</span></p>
+							</div>
+						</div>
+
+
+
+					</div>
+
+
+				</div>
+
+				<div class="next_step d-flex">
+					<a data-slide='1' id="prev">Назад</a>
+					<a data-slide='3' id="next">Дальше</a>
+				</div>
+
+
+
+			</div>
+
+
+			<!---------------- Слайд 2 конец --------------->
+
+
+			
+
+
+
+			<!---------------- Слайд 3 начало --------------->
+			<div class="sl3 hidden" id="sl3">
+				<h2 class="sl_title">Выберите <span>количество экранов</span></h2>
+
+				<div class="wrap">
+					<p>
+						Берите больше, так выше скидка. А еще так вы увеличите<br> рекламный  охват и о вас узнает больше людей.
+					</p>
+
+				<div class="skidka">
+					<input type="text" class="js-range-slider" name="my_range" value="" data-min="10" data-max="20" data-from="10"/>
+					<div class="text_procent">
+						7%
+					</div>
+					<div class="max_procent">
+						10%
+					</div>
+					<div class="info">
+						<p>+доп.скидка </p>
+						<p>количество</p>
+					</div>
+				</div>
+				<div class="input_text">
+					<p>Количество экранов</p> <input type="number" value="10" name="kol_ek_text">
+				</div>
+
+				<div class="skidka_2">
+					<div class="mon">
+						<span>10</span> <br> экранов
+					</div>
+					<div class="ravno">=</div>
+					<div class="perc">
+						<span>7%</span><br>доп.скидка
+					</div>
+
+				</div>
+				
+				
+				
+
+
+
+				</div>
+
+
+
+				<div class="next_step d-flex align_center">
+					<a data-slide='2' id="prev">Назад</a>
+					<a data-slide='4' id="next">Дальше</a>
+
+					<p>
+						Скидка может быть ещё больше. Просто дойдите до конца!
+					</p>
+				</div>
+
+			</div>
+			<!---------------- Слайд 3 конец --------------->
+
+			
+
+		
+
+
+
+			<!---------------- Слайд 4 начало --------------->
+
+			<div class="sl4 hidden" >
+				<h2 class="sl_title ">Настройте <span>эфирное время</span></h2>
+
+				<div class="wrap">
+					<p id="text_title">
+						Чем дольше ролик и чаще выходы, тем выше скидка. А ещё так вы сможете подробнее рассказать о вашем предложении большему количеству людей.
+					</p>
+
+					<h3>Выберите хронометраж ролика</h3>
+
+					<div class="select_hron">
+						<div>
+						  <input type="radio" id="radio"  name="second" checked value="5" />
+						  <label for="radio">5 сек</label>
+						</div>
+						<div>
+						  <input type="radio" id="radio1" name="second" value="10" />
+						  <label for="radio1">10 сек</label>
+						</div>
+
+						<div>
+						  <input type="radio" id="radio2" name="second" value="15" />
+						  <label for="radio2">15 сек</label>
+						</div>
+					</div>
+
+
+
+					<h3>Выберите количество выходов в блок</h3>
+
+
+
+					<div class="skidka">
+						<input type="text" class="chast_pokaza" name="my_range" value="" data-grid="true" data-min="1" data-max="5" data-from="1"/>
+						<div class="text_procent2" style="left: 0px;">
+							0%
+						</div>
+						<div class="max_procent">
+							20%
+						</div>
+						<div class="info">
+							<p>+доп.скидка</p>
+							<p>количество<br>выходов</p>
+						</div>
+					</div>
+
+
+
+
+					 <div class="chart">
+					 	<svg class="circle-chart" id="circle-chart_20" viewbox="0 0 33.83098862 33.83098862" width="280" height="280" xmlns="http://www.w3.org/2000/svg">
+					      <circle class="circle-chart__background" stroke="#fff" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+					      <circle class="circle-chart__circle" stroke="#ffee21" stroke-width="2" stroke-dasharray="2.5,100"  fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+					      <g class="circle-chart__info">
+							<text class="circle-chart__percent" x="16.91549431" y="12.5" alignment-baseline="central" text-anchor="middle" font-size="3">1 выход</text>
+							<text class="circle-chart__percent2" x="16.91549431" y="16.5" alignment-baseline="central" text-anchor="middle" font-size="3">В блоке</text>
+							<text class="circle-chart__percent3" x="16.91549431" y="20.5" alignment-baseline="central" text-anchor="middle" font-size="3">5 минут</text>
+					      </g>
+						</svg>
+						
+
+							<svg class="circle-chart hidden"  id="circle-chart_40" viewbox="0 0 33.83098862 33.83098862" width="280" height="280" xmlns="http://www.w3.org/2000/svg">
+						      <circle class="circle-chart__background" stroke="#fff" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+									<circle class="circle-chart__circle" stroke="#ffee21" stroke-width="2" stroke-dasharray="2.5,100"  fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+						      <circle class="circle-chart__circle" style="transform: rotate(86deg);" stroke="#ffee21" stroke-width="2" stroke-dasharray="2.5,100"  fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+						      <g class="circle-chart__info">
+							<text class="circle-chart__percent" x="16.91549431" y="12.5" alignment-baseline="central" text-anchor="middle" font-size="3">1 выход</text>
+							<text class="circle-chart__percent2" x="16.91549431" y="16.5" alignment-baseline="central" text-anchor="middle" font-size="3">В блоке</text>
+							<text class="circle-chart__percent3" x="16.91549431" y="20.5" alignment-baseline="central" text-anchor="middle" font-size="3">5 минут</text>
+					      
+							</svg>
+							
+
+
+								<svg class="circle-chart hidden"  id="circle-chart_60" viewbox="0 0 33.83098862 33.83098862" width="280" height="280" xmlns="http://www.w3.org/2000/svg">
+							      <circle class="circle-chart__background" stroke="#fff" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+										<circle class="circle-chart__circle" stroke="#ffee21" stroke-width="2" stroke-dasharray="2.5,100"  fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+										<circle class="circle-chart__circle" style="transform: rotate(31deg);" stroke="#ffee21" stroke-width="2" stroke-dasharray="2.5,100"  fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+							      <circle class="circle-chart__circle" style="transform: rotate(156deg);" stroke="#ffee21" stroke-width="2" stroke-dasharray="2.5,100"  fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+							      <g class="circle-chart__info">
+									<text class="circle-chart__percent" x="16.91549431" y="12.5" alignment-baseline="central" text-anchor="middle" font-size="3">1 выход</text>
+							<text class="circle-chart__percent2" x="16.91549431" y="16.5" alignment-baseline="central" text-anchor="middle" font-size="3">В блоке</text>
+							<text class="circle-chart__percent3" x="16.91549431" y="20.5" alignment-baseline="central" text-anchor="middle" font-size="3">5 минут</text>
+					      
+								</svg>
+								
+
+									<svg class="circle-chart hidden"  id="circle-chart_80" viewbox="0 0 33.83098862 33.83098862" width="280" height="280" xmlns="http://www.w3.org/2000/svg">
+								      <circle class="circle-chart__background" stroke="#fff" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+											<circle class="circle-chart__circle" stroke="#ffee21" stroke-width="2" stroke-dasharray="2.5,100"  fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+											<circle class="circle-chart__circle" style="transform: rotate(0deg);" stroke="#ffee21" stroke-width="2" stroke-dasharray="2.5,100"  fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+											<circle class="circle-chart__circle" style="transform: rotate(86deg);" stroke="#ffee21" stroke-width="2" stroke-dasharray="2.5,100"  fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+								      <circle class="circle-chart__circle" style="transform: rotate(179deg);" stroke="#ffee21" stroke-width="2" stroke-dasharray="2.5,100"  fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+								       <g class="circle-chart__info">
+											<text class="circle-chart__percent" x="16.91549431" y="12.5" alignment-baseline="central" text-anchor="middle" font-size="3">1 выход</text>
+											<text class="circle-chart__percent2" x="16.91549431" y="16.5" alignment-baseline="central" text-anchor="middle" font-size="3">В блоке</text>
+											<text class="circle-chart__percent3" x="16.91549431" y="20.5" alignment-baseline="central" text-anchor="middle" font-size="3">5 минут</text>
+											  </svg>
+
+
+										<svg class="circle-chart hidden"  id="circle-chart_100" viewbox="0 0 33.83098862 33.83098862" width="280" height="280" xmlns="http://www.w3.org/2000/svg">
+									      <circle class="circle-chart__background" stroke="#fff" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+												<circle class="circle-chart__circle" stroke="#ffee21" stroke-width="2" stroke-dasharray="2.5,100"  fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+												<circle class="circle-chart__circle" style="transform: rotate(-20deg);" stroke="#ffee21" stroke-width="2" stroke-dasharray="2.5,100"  fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+												<circle class="circle-chart__circle" style="transform: rotate(49deg);" stroke="#ffee21" stroke-width="2" stroke-dasharray="2.5,100"  fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+												<circle class="circle-chart__circle" style="transform: rotate(200deg);" stroke="#ffee21" stroke-width="2" stroke-dasharray="2.5,100"  fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+									      <circle class="circle-chart__circle" style="transform: rotate(130deg);" stroke="#ffee21" stroke-width="2" stroke-dasharray="2.5,100"  fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+									      <g class="circle-chart__info">
+												<text class="circle-chart__percent" x="16.91549431" y="12.5" alignment-baseline="central" text-anchor="middle" font-size="3">1 выход</text>
+												<text class="circle-chart__percent2" x="16.91549431" y="16.5" alignment-baseline="central" text-anchor="middle" font-size="3">В блоке</text>
+												<text class="circle-chart__percent3" x="16.91549431" y="20.5" alignment-baseline="central" text-anchor="middle" font-size="3">5 минут</text>
+											  </svg>
+					 </div>
+
+					 <div class="skidka2 d-flex">
+					 	<div class="sec">
+					 		<span>5</span><br>
+					 		секунд
+					 	</div>
+					 	<div class="ravno">=</div>
+					 	<div class="proc">
+					 		<span>0%</span><br>
+					 		доп.скидка
+					 	</div>
+					 </div>
+
+
+
+
+
+				</div>
+
+
+				<div class="next_step d-flex align_center">
+					<a data-slide='3' id="prev">Назад</a>
+					<a data-slide='5' id="next">Дальше</a>
+
+					<p>
+						Осталась пара шагов, чтобы получить <br>
+							максимальную скидку на размещение.
+					</p>
+				</div>
+			</div>
+
+			<!---------------- Слайд 4 конец --------------->
+
+			<!---------------- Слайд 5 начало --------------->
+
+			<div class="sl5 hidden" >
+				<h2 class="sl_title ">Выберите <span>период</span></h2>
+
+				<div class="wrap">
+					<p id="text_title">
+						Размещайтесь так, как вам удобно – месяцами, неделями или
+в конкретные дни. Чтобы выбрать период укажите даты начала
+и конца размещения.
+					</p>
+
+					<div class="period_skidka d-flex">
+					 	<div class="sec">
+					 		<span>1</span><br>
+					 		<label>день</label>
+					 	</div>
+					 	<div class="ravno">=</div>
+					 	<div class="proc">
+					 		<span>0%</span><br>
+					 		доп.скидка
+					 	</div>
+					 </div>
+
+					 <div class="period_text d-flex">
+					 	<p>Чем дольше размещение,<br>тем больше охват и скидка.</p>
+
+					 	<div class="tabl">
+					 		<div class="d-flex">
+					 			<div class="day">От 3х дней</div>
+					 			<div class="proc">5%</div>
+					 		</div>
+					 		<div class="d-flex">
+					 			<div class="day">От 8 дней</div>
+					 			<div class="proc">10%</div>
+					 		</div>
+					 		<div class="d-flex">
+					 			<div class="day">От 14 дней</div>
+					 			<div class="proc">15%</div>
+					 		</div>
+					 		<div class="d-flex">
+					 			<div class="day">От 21 дня</div>
+					 			<div class="proc">16%</div>
+					 		</div>
+					 		<div class="d-flex">
+					 			<div class="day">От 30 дней</div>
+					 			<div class="proc">17%</div>
+					 		</div>
+					 	</div>
+					 </div>
+                <br>
+					<div class="date_pick">
+						<div class="text hidden">
+							Если вы хотите выбрать период по дням,<br> перейдите в режим <span>"Период по дням."</span>
+						</div>
+						<br>
+						<div class="text2 hidden">
+							Вы свободно можете выбирать период размещения <br>
+					по дням. Выбирайте на календаре те даты, когда <br>
+					вам необходимо размещение, например, только <br>
+					четверг, пятница и суббота. Нажмите на нужную дату <br>
+					для ее выбора. Повторное нажатие отменит выбор.
+
+						</div>
+<br>
+						<div class="d-flex">
+							<span class="yellow sp1">Единый период</span>
+							<input type="checkbox" name="date_chenge" class="checkbox" id="checkbox" />
+							<label for="checkbox"></label>
+							<span class="sp2">Период по дням</span>
+						</div>
+
+						<div id="date_range" class="hidden"></div>
+						<div id="date_period" class=""></div>
+
+					</div>
+
+
+
+
+
+
+
+				</div>
+
+				<div class="next_step d-flex align_center">
+					<a data-slide='4' id="prev">Назад</a>
+					<a data-slide='6' id="next">Дальше</a>
+
+					<p>
+						Остался последний шаг до выгодного предложения. <br>Вы молодец!
+					</p>
+				</div>
+			</div>
+
+			<!---------------- Слайд 5 конец --------------->
+
+
+
+			<!---------------- Слайд 6 начало --------------->
+			<div class="sl6 hidden" >
+				<h2 class="sl_title ">Выберите <span>дополнительные услуги</span></h2>
+
+				<div class="wrap">
+
+					<p id="text_title">
+						Воспользуйтесь всеми преимуществами размещения на digital-экранах - размещайте динамичные, креативные макеты, используйте серию роликов и таргетируйте их по времени. Вы можете заказать у нас и разработку рекламных макетов, анимацию или адаптацию роликов.
+					</p>
+
+					<div class="select_hron d-flex">
+						<div class="left">
+							<div class="d-flex">
+							  <input type="checkbox" id="radio11"  name="mult"  value="4000" />
+							  <label for="radio11">Мультисюжетность<br>   <div class="btn-tooltip">
+								  
+									<p class="indent">
+<svg class="podsk" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" style="
+margin-left: 235%;
+margin-top: -200%;
+">
+  <g id="Group_90" data-name="Group 90" transform="translate(-436 -509)">
+    <g id="Ellipse_141" data-name="Ellipse 141" transform="translate(436 509)" fill="none" stroke="#ffee21" stroke-width="1">
+      <circle cx="9.5" cy="9.5" r="9.5" stroke="none"/>
+      <circle cx="9.5" cy="9.5" r="9" fill="none"/>
+    </g>
+    <text id="_" data-name="?" transform="translate(442 524)" fill="#ffee21" font-size="15" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">?</tspan></text>
+  </g>
+</svg>
+</p>
+<span class="tools" style="right: -120%;">
+	Это возможность размещать не один, а серию роликов.
+Варианты мультисюжетности:
+Ролики можно чередовать на одной конструкции.
+На разных экранах можно транслировать разные ролики.
+</span>
+
+</div>
+
+
+
+
+							  </label>
+
+							  <div class="price">+4 000 руб.</div>
+							</div>
+
+							<div class="d-flex">
+							  <input type="checkbox" id="radio12" name="target"  value="2500" />
+							  <label for="radio12">Таргетирование <br> по времени
+								&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+<div class="btn-tooltip"   style=" margin-top: -8%;" >
+<svg class="podsk" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" >
+  <g id="Group_90" data-name="Group 90" transform="translate(-436 -509)">
+    <g id="Ellipse_141" data-name="Ellipse 141" transform="translate(436 509)" fill="none" stroke="#ffee21" stroke-width="1" >
+      <circle cx="9.5" cy="9.5" r="9.5" stroke="none"/>
+      <circle cx="9.5" cy="9.5" r="9" fill="none"/>
+    </g>
+    <text id="_" data-name="?" transform="translate(442 524)" fill="#ffee21" font-size="15" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">?</tspan></text>
+  </g>
+</svg>
+
+<span class="tools">
+	Мы можем настроить трансляцию ваших разных роликов в зависимости от дня недели или времени суток. В разное время предлагайте потребителям разные товары и услуги, наиболее актуальные в данный момент.
+</span>
+
+</div>
+
+
+							  </label>
+							  <div class="price">+2 500 руб.</div>
+							</div>
+
+							<div class="d-flex">
+								<input type="checkbox" id="radio13" name="foto"  value="50" />
+								<label for="radio13">Фотоотчет 
+								  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+								  <div class="btn-tooltip" >
+								  <svg class="podsk" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" >
+									<g id="Group_90" data-name="Group 90" transform="translate(-436 -509)">
+									  <g id="Ellipse_141" data-name="Ellipse 141" transform="translate(436 509)" fill="none" stroke="#ffee21" stroke-width="1" >
+										<circle cx="9.5" cy="9.5" r="9.5" stroke="none"/>
+										<circle cx="9.5" cy="9.5" r="9" fill="none"/>
+									  </g>
+									  <text id="_" data-name="?" transform="translate(442 524)" fill="#ffee21" font-size="15" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">?</tspan></text>
+									</g>
+								  </svg>
+								  
+								  <span class="tools">
+									  Скриншот с камеры: бесплатно. Профессиональное фото: 50 руб. за 1 шт.
+								  </span>
+							  </div>
+								</label>
+							  </div>
+						  </div>
+
+						<div class="right">
+
+							<div class="d-flex">
+							  <input type="checkbox" id="radio3"  name="maket"  value="4000" />
+							  <label for="radio3" >Разработка<br>динамичного ролика</label>
+							   <div class="price">+4 000 руб.</div>
+							</div>
+
+
+
+
+
+
+
+
+
+
+							<div class="d-flex">
+							  <input type="checkbox" id="radio4"  name="adapt"  value="1500" />
+							  <label for="radio4">Адаптация макета
+
+
+
+
+
+
+								&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+								<div class="btn-tooltip" style="       margin-top: -9px;margin-left: -100px;margin-right: 25px;">
+								<svg class="podsk" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19"  >
+								  <g id="Group_90" data-name="Group 90" transform="translate(-436 -509)">
+									<g id="Ellipse_141" data-name="Ellipse 141" transform="translate(436 509)" fill="none" stroke="#ffee21" stroke-width="1" >
+									  <circle cx="9.5" cy="9.5" r="9.5" stroke="none"/>
+									  <circle cx="9.5" cy="9.5" r="9" fill="none"/>
+									</g>
+									<text id="_" data-name="?" transform="translate(442 524)" fill="#ffee21" font-size="15" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">?</tspan></text>
+								  </g>
+								</svg>
+								
+								<span class="tools">
+									Переработка вашего макета под digital-формат.
+								</span>
+							</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+							
+
+
+
+
+
+
+
+
+
+
+
+
+							  </label>
+
+							   <div class="price">+1 500 руб.</div>
+							</div>
+
+
+
+
+
+
+
+
+
+
+							
+							<div class="d-flex">
+							  <input type="checkbox" id="radio5"  name="anim" value="2000" />
+							  <label for="radio5">Анимация<br>статичного макета</label>
+
+							   <div class="price">+2 000 руб.</div>
+							</div>
+
+
+						</div>
+					</div>
+
+
+
+
+
+
+				</div>
+
+				<div class="next_step d-flex align_center">
+					<a data-slide='5' id="prev">Назад</a>
+					<a data-slide='7' id="next">Дальше</a>
+				</div>
+			</div>
+
+			<!---------------- Слайд 6 конец --------------->
+
+			<!---------------- Слайд 7 начало --------------->
+			<div class="sl7 hidden" >
+				<h2 class="sl_title ">А вот и расчёт <span>вашего размещения</span></h2>
+              
+				<div class="wrap">
+
+					<p>
+						Вы можете скачать индивидуальный расчёт, чтобы обсудить его с коллегами.<br>
+						Если у вас остались вопросы, свяжитесь с нами и мы подробно проконсультируем вас.
+					</p>
+
+					<div class="otchet">
+						<div class="col-12">
+							<div class="row"   style="margin-left: 1%; margin-top: 1%;margin-right: 1%;margin-bottom: 2%;">
+								<div class="col-md-12">
+									<div class="title">
+										Пакет <br> <span>Вся Казань</span>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<hr>
+									<div class="data d-flex justify-content-between">
+											
+											<table border="1" style="border-collapse: collapse; width: 100%;">
+												<tbody>
+												<tr>
+												<td style="width: 33.3333%; ">экранов</td>
+												<td style="width: 33.3333%; ">хронометраж</td>
+												<td style="width: 33.3333%; text-align: center;">период</td>
+												</tr>
+												
+												<tr>
+												<td class="ekranu" style="width: 33.3333%; "><span>10 шт</span></td>
+												<td class="hronometraj" style="width: 33.3333%;"><span>5 сек</span></td>
+												<td class="period" style="width: 33.3333%; text-align: center;"><span>1 день</span></td>
+												</tr>
+
+												</tbody>
+												</table>
+
+
+
+
+									</div>
+								</div>
+								
+								<div class="col-md-6">
+									<div class="data2" style="margin-left: 10%;">
+										<hr>
+										<div class="d-flex justify-content-between">
+											<div class="name">Количество выходов</div>
+											<div class="count chastotnost">2 160</div>
+										</div>
+										<div class="d-flex justify-content-between">
+											<div class="name">Эфирное время (сек.)</div>
+											<div class="count efir_vr">10 800</div>
+										</div>
+										<div class="d-flex justify-content-between">
+											<div class="name">Потенциальных контактов</div>
+											<div class="count kontaktu">108 000</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-md-6">
+									<hr>
+									<div class="align_center d-flex justify-content-between">
+										<p id="period_month">Период размещения <br> <span>fuck</span></p>
+										<div class="count period_razm" style="font-size: 23px; font-weight: bold;">fuck</div>
+									</div>
+
+								</div>
+								<div class="col-md-6 price_st" style="margin-left: 55%;
+								margin-top: -10%;">
+									<hr>
+									<p>стоимость размещения с доп. услугами</p>
+									<div class="old_price">5 760</div>
+									<div class="new_price">3 053 руб.</div>
+								</div>
+								
+
+<div class="col-md-6" style="margin-left: 55%;   margin-top: 15px;">
+									<hr>
+									<div class="data2" style="    margin-right: 7%;">
+
+										<div class="d-flex justify-content-between">
+											<div class="name">Экономия</div>
+											<div class="count ekonomia">2 707 руб.</div>
+										</div>
+										<div class="d-flex justify-content-between">
+											<div class="name ">Стоимость контакта</div>
+											<div class="count one_contact">0.03 руб.</div>
+										</div>
+									</div>
+								</div>
+
+
+
+
+
+								<div class="col-md-6" style="margin-top: -13%;">
+									<hr>
+									<div class="dop_yslugi">
+										<p>Дополнительные услуги:</p>
+										<div class="dd">
+
+										</div>
+
+									</div>
+								</div>
+
+								
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="next_step d-flex align_center" style="margin-top:40px;display:block !important">
+	                 
+				<a href="/new/build/index.html"  target="_self" style="margin-right:30px;float: left;text-decoration:none;  background-color: #0e0a2d!important; color: #fff !important;border: 2px solid #FFFFFF;">Начать заново</a>
+				<section class="b-modal-window m-form">
+					<div class="b-modal-window__window">
+						<button class="b-modal-window__window__close  close-modal-window-form"><img src="img/b-modal-window-close.png" /></button>
+						<form id="form-feedback-modal-win" class="g-form-feedback" method="post" action="javascript:void(null);" onsubmit="ajaxForm('#form-feedback-modal-win')">
+							<input name="name" type="text" placeholder="Ваше имя" class="g-form-feedback__input name" required />
+							<input name="phone" type="tel" placeholder="Телефон" class="g-form-feedback__input phone" required  />
+							<input name="email" type="email" placeholder="Email" class="g-form-feedback__input email" required />
+							<button class="g-callback-buttton g-form-feedback__button">Отправить</button>
+						</form>
+					</div>
+				</section>	
+				<a class="g-callback-buttton show-modal-window-form" style="text-decoration:none; margin-right:30px;float: left;">Заказать</a>
+					<a href="/new/build/pdf.php" class="pdf_redirect" target="_blank" style=" float: right; background-color: #0e0a2d!important; color:#ffee21 !important; border: 2px solid #ffee21;">
+						Скачать PDF</a>
+				   <p style=" font-size: 18px; line-height: 60px; margin-right:30px; margin-block: 30px;">
+						<!--Закажите сейчас и получите ещё скидку 5%-->
+					</p>
+				</div>
+			</div>
+
+
+
+	</div>
+	</div>
+
+
+	<div class="col-lg-5 col-xl-4">
+		<div class="raschet">
+			<div class="title">Пакет <br> <span>Весь Нижний Новгород</span></div>
+			<hr>
+
+			<div class="data d-flex justify-content-between">
+				<div class="ekranu">
+					экранов<br><span>10 шт</span>
+				</div>
+				<div class="hronometraj">
+					хронометраж<br><span>5 сек</span>
+				</div>
+				<div class="period">
+					период<br><span>1 день</span>
+				</div>
+			</div>
+<br>
+			<div class="data2">
+				<div class="d-flex justify-content-between">
+					<div class="name">Количество выходов</div>
+					<div class="count chastotnost">2 160</div>
+				</div>
+				<div class="d-flex justify-content-between">
+					<div class="name">Эфирное время (сек.)</div>
+					<div class="count efir_vr">10 800</div>
+				</div>
+				<div class="d-flex justify-content-between">
+					<div class="name">Потенциальных контактов</div>
+					<div class="count kontaktu">108 000</div>
+				</div>
+			</div>
+
+			<a id="mediametria">Посмотреть медиаметрию</a>
+
+			<hr id="hr2">
+
+			<div class="price_block">
+				<p>стоимость размещения</p>
+				<div class="old">5 760</div>
+				<div class="new">3 053 руб.</div>
+			</div>
+
+			<hr id="hr3">
+
+			<div class="data2">
+				<div class="d-flex justify-content-between">
+					<div class="name">Размер скидки от прайса</div>
+					<div class="count ekonomia-procent">47%</div>
+				</div>
+				<div class="d-flex justify-content-between">
+					<div class="name">Экономия</div>
+					<div class="count ekonomia">18 749 руб.</div>
+				</div>
+				<div class="d-flex justify-content-between">
+					<div class="name ">Стоимость контакта</div>
+					<div class="count one_contact">0.03 руб.</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+
+	<!---------------- Правая часть расчет конец--------------->
+
+
+</div>
+
+
+
+
+		</div>
+
+	</div>
+</section>
+
+
+<div class="popup hidden">
+	<div class="show_media">
+		<div class="close">
+			<svg xmlns="http://www.w3.org/2000/svg" width="36.827" height="34.827" viewBox="0 0 36.827 34.827"> <g id="Group_50" data-name="Group 50" transform="translate(-196.586 -231.586)"> <line id="Line_100" data-name="Line 100" x1="32" y2="34" transform="translate(198 265) rotate(-90)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2"/> <line id="Line_101" data-name="Line 101" x2="32" y2="34" transform="translate(198 265) rotate(-90)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2"/> </g> </svg>
+		</div>
+		<div class="table-responsive">
+
+			<table class="table table-bordered">
+
+			  <tbody>
+			  	<tr>
+			      <td class="bt_none bl_none bb_none" colspan="1"></td>
+			      <td class="bt_none br_none" colspan="2">
+			      	<div class="wrap d-flex align-items-center">
+			      		<div class="clock">
+							<svg xmlns="http://www.w3.org/2000/svg" width="53.089" height="53.085" viewBox="0 0 53.089 53.085"> <g id="Group_138" data-name="Group 138" transform="translate(-699.14 -61.609)"> <g id="Component_3_1" data-name="Component 3 – 1" transform="translate(699.14 61.609)"> <g id="Group_137" data-name="Group 137" transform="translate(0 0)"> <path id="Path_352" data-name="Path 352" d="M39.856,19.927A26.545,26.545,0,1,1,13.314-6.616,26.542,26.542,0,0,1,39.856,19.927" transform="translate(13.233 6.616)" fill="#ffed20"/> </g> </g> </g> <g id="Group_130" data-name="Group 130" transform="translate(4.632 4.632)"> <path id="Path_355" data-name="Path 355" d="M15.1,15.1,9.529,9.529m9.913,7.346A2.544,2.544,0,1,0,16.9,19.418,2.553,2.553,0,0,0,19.442,16.875Zm-1.071-1.825,8.762-8.926m.542-8.309L25.833,1.008m9.937,4.754L32.577,7.6m6.234,9.087H35.125m.855,10.985L32.79,25.829m-4.754,9.941-1.841-3.193m-9.087,6.234V35.129m-10.989.851L7.964,32.79m-9.941-4.754,3.193-1.841m-6.23-9.087h3.687M-2.186,6.123,1.008,7.968M5.762-1.973,7.6,1.216m9.087-6.23v3.683" transform="translate(5.014 5.014)" fill="none" stroke="#0d092d" stroke-width="0.4"/> </g> </svg>
+						</div>
+						<span>В сутки</span>
+
+			      	</div>
+
+				  </td>
+			      <td class="bt_none bl_none" colspan="2">
+					<div class="wrap d-flex align-items-center">
+						<div class="calendar">
+							<svg xmlns="http://www.w3.org/2000/svg" width="52.221" height="45.685" viewBox="0 0 52.221 45.685"> <g id="Group_124" data-name="Group 124" transform="translate(1.256 19.047)"> <path id="Path_346" data-name="Path 346" d="M37.32,0V26.438H-12.391V0" transform="translate(12.391)" fill="#ffed20" stroke="#0d092d" stroke-width="0.4"/> </g> <path id="Path_347" data-name="Path 347" d="M317.441-124.965h-4.4v-4.4h4.4Zm-14.3,4.726h-2.564m9.275,0h-2.563m9.279,0H314m9.275,0H320.71m9.28,0h-2.564m-30.992-6.929h-2.568m9.275,0h-2.564m9.275,0h-2.563m15.987,0H320.71m9.28,0h-2.564M296.435-134h-2.568m9.275,0h-2.564m9.275,0h-2.563m9.279,0H314m9.275,0H320.71m9.28,0h-2.564" transform="translate(-285.443 157.232)" fill="#ffed20" stroke="#0d092d" stroke-width="0.4"/> <g id="Group_125" data-name="Group 125" transform="translate(0.2 4.614)"> <path id="Path_348" data-name="Path 348" d="M33.137,0h7.683V11.2H-11V0h7.109" transform="translate(11.002)" fill="#ffed20" stroke="#0d092d" stroke-width="0.4"/> </g> <g id="Group_126" data-name="Group 126" transform="translate(7.442 4.614)"> <path id="Path_349" data-name="Path 349" d="M3.391,0H31.475M3.275,34.574h-4.4v-4.4h4.4Z" transform="translate(1.126)" fill="#ffed20" stroke="#0d092d" stroke-width="0.4"/> </g> <path id="Path_350" data-name="Path 350" d="M293.669-139.738h4.357v9.769h-4.357Z" transform="translate(-286.04 139.938)" fill="#ffed20" stroke="#0d092d" stroke-width="0.4"/> <path id="Path_351" data-name="Path 351" d="M301.8-139.738h4.357v9.769H301.8Z" transform="translate(-261.563 139.938)" fill="#ffed20" stroke="#0d092d" stroke-width="0.4"/> </svg>
+						</div>
+			      		<span>За период(<small s="period_days">1</small> день)</span>
+
+					</div>
+			      </td>
+			    </tr>
+
+			  	<tr class="mediam_1">
+			      <td class="bt_none bl_none"></td>
+			      <td class="white">на 1 экране</td>
+			      <td class="white">на 10 экранах</td>
+			      <td class="white">на 1 экране</td>
+			      <td class="white">на 10 экранах</td>
+			    </tr>
+
+			    <tr class="mediam_2">
+			      <th class="bl_none">Количество выходов</th>
+			      <td>216</td>
+			      <td>2160</td>
+			      <td>216</td>
+			      <td>2160</td>
+			    </tr>
+
+			    <tr class="mediam_3">
+			      <th class="bl_none">Эфирное время (сек.)</th>
+			      <td>1 080</td>
+			      <td>10 800</td>
+			      <td>1 080</td>
+			      <td>10 800</td>
+			    </tr>
+
+			    <tr style="height: 100px;" class="mediam_4">
+			      <th class="bl_none">Потенциальных контактов</th>
+			      <td class="bb_none">10 800</td>
+			      <td class="bb_none">108 000</td>
+			      <td class="bb_none">10 800</td>
+			      <td class="pot_kon_4">108 000 </td>
+			    </tr>
+
+
+				<tr >
+					<td class="bt_none bb_none bl_none br_none garant" colspan="5">
+						<div class="text">Указаны минимальные гарантированные показатели. Рост показателей возможен за счет бонусных выходов роликов при наличии свободного эфирного времени на экранах.
+						</div>
+					</td>
+				</tr>
+
+			  </tbody>
+			</table>
+
+
+
+		</div>
+
+
+
+
+
+
+	</div>
+
+
+
+</div>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
+
+
+<script src="js/jquery.datepicker.extension.range.min.js"></script>
+<script src="js/script.js?v=2221"></script>
+
+
+</body>
+</html>
